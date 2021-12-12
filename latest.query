@@ -1,0 +1,17 @@
+{ 
+  "query": "query {
+    repository(owner: \"paritytech\", name: \"polkadot\", followRenames: true) {
+      latestRelease {
+        tagName
+        isDraft
+        isLatest
+        isPrerelease
+        releaseAssets(name: \"polkadot\", last: 100) {
+          nodes {
+            downloadUrl
+          }
+        }
+      }
+    }
+  }"
+}
