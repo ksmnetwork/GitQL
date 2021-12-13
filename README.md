@@ -22,6 +22,42 @@ Steps:
 Others:
 - Same TOKEN and QUERY can be used with Grafana it self by adding GraphQL Plugin and outhorise to 'https://api.github.com/graphql' in the options
 - - Grafana Alerting && OnCall compatible
+- Ract + Apollo + NextJS
+
+```
+import Head from 'next/head'
+import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, InMemoryCache, createHttpLink, gql } from "@apollo/client";
+
+export default function Home({repository}) {
+  return ( <div> {repository.latestRelease.tagName} </div> )
+}
+
+export async function getStaticProps() {
+  const httpLink = createHttpLink({ uri: 'https://api.github.com/graphql' });
+  const authLink = setContext((_, { headers }) => {
+    return { headers: { ...headers, authorization: `Bearer <TOKEN>` } }
+  });
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+  });
+  const {data} = await client.query({
+    query: gql`
+      { 
+        repository(owner: "paritytech", name: "polkadot", followRenames: true) {
+          latestRelease { tagName }
+        }
+      }
+    `
+  });
+  const { repository } = data;
+
+  return {
+    props: { repository }
+  }
+}
+```
   
 # For Support && Nominations
 - Display name. KSMNETWORK && KSMNETWORK-WEST 
