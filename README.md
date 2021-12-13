@@ -18,6 +18,10 @@ Steps:
 - Since we are using the first positional parameter to include local file for our query ( --data "@$1" )
 - Run it with './gitCron.sh latest.query' 
 - - NOTE: for CRON use '/etc/environment' for the environment variables 
+
+Others:
+- Same TOKEN and QUERY can be used with Grafana it self by adding GraphQL Plugin and outhorise to 'https://api.github.com/graphql' in the options
+- - Grafana Alerting && OnCall compatible
   
 # For Support && Nominations
 - Display name. KSMNETWORK && KSMNETWORK-WEST 
