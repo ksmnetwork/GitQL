@@ -4,7 +4,8 @@
 A basic script that will check the latest Polkadot release TAG version commited and it's status as "Latest, Draft, Pre-Release"
 if all the conditions are fulfilled it will do a secondary check if a binary file exist, then it will download, backup, restart and wait to see the application status.
 
-Outputs are outputed to the journald for external monitoring, will suggest "Grafana, Loki and Promtail" for free!
+Outputs are outputed to the journald, will suggest "Grafana, Loki and Promtail".
+- [KUSAMA Validator Simple Monitoring](https://github.com/ksmnetwork/kusama-promtail)
 
 Dependencies: 
 - CURL apt/yum install -y curl
@@ -22,7 +23,7 @@ Steps:
 Others:
 - Same TOKEN and QUERY can be used with Grafana it self by adding GraphQL Plugin and outhorise to 'https://api.github.com/graphql' in the options
 - - Grafana Alerting && OnCall compatible
-- Ract + Apollo + NextJS
+- Ract + Apollo + NextJS for you pocket app.
 
 ```
 import Head from 'next/head'
