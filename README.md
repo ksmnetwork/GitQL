@@ -23,7 +23,7 @@ Steps:
 Others:
 - Same TOKEN and QUERY can be used with Grafana it self by adding GraphQL Plugin and outhorise to 'https://api.github.com/graphql' in the options
 - - Grafana Alerting && OnCall compatible
-- Ract + Apollo + NextJS for you pocket app.
+- Ract + Apollo + NextJS for your pocket app.
 
 ```
 import Head from 'next/head'
